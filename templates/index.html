@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {
+  font-family: Arial;
+  background-image: url('../static/bg.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h2{
+    color: #f1f1f1;
+    font-size: 60px;
+}
+
+p{
+  color: #f1f1f1;
+  font-size: 40px;
+}
+
+form.example input[type=text] {
+  padding: 18px;
+  font-size: 17px;
+  border: 2px solid black;
+  float: left;
+  width: 70%;
+  background: #f1f1f1;
+}
+
+form.example button {
+  float: left;
+  width: 20%;
+  padding: 20px;
+  background: #2196F3;
+  color: white;
+  font-size: 17px;
+  border: 1px solid black;
+  border-left: none;
+  cursor: pointer;
+}
+
+form.example button:hover {
+  background: #0b7dda;
+}
+
+form.example::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.white-box {
+  background-color: white;
+  width: 400px;
+  padding: 20px;
+  border: 2px solid black;
+  margin: 5px auto;
+}
+
+.white-box p{
+  color: black;
+  font-size: 20px;
+}
+</style>
+</head>
+<body>
+
+{% if flag==0 %}
+  <h2>Movie Recommendation</h2>
+
+  <!-- <p>Enter your movie here:</p> -->
+  <form class="example" method="POST" action="/">
+    <input type="text" placeholder="Movie name" name="movie_name">
+    <button type="submit" ><i class="fa fa-search"></i></button>
+  </form>
+{% else %}
+  {% if flag==1 %}
+    <p>Movie not found!</p>
+  {% else %}
+    <h2>Movies For You...</h2>
+    <div class="white-box">
+        {% for i in movie_names %}
+        <p>
+            {{i}}
+            <br>
+        </p>
+        {% endfor %}
+    </div>
+  {%endif%}
+{% endif %}
+
+</body>
+</html> 

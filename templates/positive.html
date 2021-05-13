@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {
+  font-family: Arial;
+  background-image: url('../static/bg.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h2{
+    color: #f1f1f1;
+    font-size: 60px;
+}
+
+.white-box {
+    background-color: white;
+    color: black;
+    font-size: 20px;
+    width: 400px;
+    padding: 20px;
+    border: 2px solid black;
+    margin: 5px auto;
+}
+</style>
+</head>
+<body>
+
+<h2>Movies For You...</h2>
+
+<div class="white-box">
+    {% for i in movie_names %}
+    <p>
+        {{i}}
+        <br>
+    </p>
+    {% endfor %}
+</div>
+
+</body>
+</html> 
